@@ -1,6 +1,6 @@
 <article id="technos">
 
-    <svg id="techno_wrapper" role="img" style="height: 300px; display: block;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg id="techno_wrapper" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         @foreach(json_decode($technos)->logos as $id => $t)
             @if ($id === 'html')
                 <path
@@ -19,7 +19,7 @@
         @endforeach
     </svg>
 
-    <svg id="techno_text_wrapper" style="width: 100%; height: 50px; padding: 10px; display: flex; justify-content: center; text-align: center;" viewBox="0 0 275.7 100" xmlns="http://www.w3.org/2000/svg">
+    <svg id="techno_text_wrapper" viewBox="0 -10 275.7 100" xmlns="http://www.w3.org/2000/svg">
         @foreach(json_decode($technos)->logos as $id => $t)
             @if ($id === 'html')
                 <path

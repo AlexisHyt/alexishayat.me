@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #description {
-  padding: 4em 6em;
+  padding: 3em 6em;
   display: flex;
   flex-direction: column;
 }
@@ -387,10 +387,9 @@ h1, h2, h3, h4, h5, h6, p {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-#social > div {
+#social > .social_item {
   position: relative;
   z-index: 8;
-  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,36 +399,11 @@ h1, h2, h3, h4, h5, h6, p {
   transform: translateY(20vh);
   opacity: 0;
 }
-#social > div > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  margin: 1vh;
-  transform-style: preserve-3d;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 50%;
-  width: 50%;
-  aspect-ratio: 1/1;
-}
-@media screen and (max-width: 1135px) {
-  #social > div > div {
-    justify-content: center;
-  }
-}
-@media screen and (max-width: 1135px) {
-  #social > div > div {
-    width: 90%;
-  }
-}
-#social > div > div:hover > a svg {
+#social > .social_item:hover svg {
   fill: var(--hover);
   transform: translateZ(10px);
 }
-#social > div > div:hover > a p {
-  transform: translateZ(20px);
-}
-#social > div > div > a {
+#social > .social_item > a {
   text-align: center;
   text-decoration: none;
   height: 100%;
@@ -439,29 +413,19 @@ h1, h2, h3, h4, h5, h6, p {
   justify-content: center;
 }
 @media screen and (max-width: 1135px) {
-  #social > div > div > a {
+  #social > .social_item > a {
     padding: 2vh;
   }
 }
-#social > div > div > a svg {
+#social > .social_item > a svg {
   height: 6vh;
   fill: #fff;
   transform: translateZ(0);
   transition: fill 0.15s ease-out, transform 0.15s ease-out;
 }
 @media screen and (max-width: 1135px) {
-  #social > div > div > a svg {
+  #social > .social_item > a svg {
     height: 10vh;
-  }
-}
-#social > div > div > a p {
-  font-size: 1.2em;
-  transform: translateZ(0);
-  transition: transform 0.15s ease-out;
-}
-@media screen and (max-width: 1135px) {
-  #social > div > div > a p {
-    display: none;
   }
 }
 
@@ -473,10 +437,20 @@ h1, h2, h3, h4, h5, h6, p {
   position: relative;
   width: 100%;
 }
+#technos #techno_wrapper {
+  display: block;
+  height: 200px;
+}
 #technos #techno_text_wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
   fill: #fff;
   stroke: #fff;
-  stroke-width: 2px;
+  stroke-width: 10px;
   stroke-linecap: round;
   fill-rule: evenodd;
   vector-effect: non-scaling-stroke;

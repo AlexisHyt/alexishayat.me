@@ -8,15 +8,15 @@
                 'icon' => 'github',
                 'color' => '#565252'
             ],
-            'Instagram' => [
-                'url' => 'https://www.instagram.com/azenox_/',
-                'icon' => 'instagram',
-                'color' => '#E4405F'
-            ],
             'Linkedin' => [
                 'url' => 'https://www.linkedin.com/in/alexis-hayat-b826a7162/',
                 'icon' => 'linkedin',
                 'color' => '#0A66C2'
+            ],
+            'Instagram' => [
+                'url' => 'https://www.instagram.com/azenox_/',
+                'icon' => 'instagram',
+                'color' => '#E4405F'
             ],
             'Twitter' => [
                 'url' => 'https://twitter.com/AzenoX_',
@@ -33,10 +33,10 @@
                 'icon' => 'spotify',
                 'color' => '#1DB954'
             ],
-            'Steam' => [
-                'url' => 'https://steamcommunity.com/id/AzenoX1',
-                'icon' => 'steam',
-                'color' => '#145692'
+            'Codepen' => [
+                'url' => 'https://codepen.io/AzenoX',
+                'icon' => 'codepen',
+                'color' => '#000000'
             ],
             'Discord' => [
                 'url' => 'https://discord.gg/2KbWTmC7xe',
@@ -54,12 +54,9 @@
 
     @foreach($socials as $name => $social)
         <div class="social_item">
-            <div class="tilted">
-                <a href="{{ $social['url'] }}" target="_blank">
-                    <x-icon name="{{ $social['icon'] }}" style="--hover: {{ $social['color'] }}"/>
-                    <p>{{ $name }}</p>
-                </a>
-            </div>
+            <a href="{{ $social['url'] }}" target="_blank">
+                <x-icon name="{{ $social['icon'] }}" style="--hover: {{ $social['color'] }}"/>
+            </a>
         </div>
     @endforeach
 

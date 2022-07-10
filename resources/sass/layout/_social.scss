@@ -3,11 +3,9 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    & > div{
+    & > .social_item{
         position: relative;
         z-index: 8;
-
-        width: 30%;
 
         display: flex;
         justify-content: center;
@@ -20,75 +18,39 @@
         transform: translateY(20vh);
         opacity: 0;
 
-        & > div{
-            $transition: 0.15s ease-out;
+        $transition: 0.15s ease-out;
 
+        &:hover{
+            svg{
+                fill: var(--hover);
+                transform: translateZ(10px);
+            }
+        }
+
+        & > a{
+            text-align: center;
+
+            text-decoration: none;
+
+            height: 100%;
             display: flex;
-            justify-content: space-between;
-            @media screen and (max-width: 1135px){
-                justify-content: center;
-            }
-            align-items: center;
             flex-direction: column;
-            margin: 1vh;
-            transform-style: preserve-3d;
-
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 50%;
-            width: 50%;
+            align-items: center;
+            justify-content: center;
             @media screen and (max-width: 1135px){
-                width: 90%;
+                padding: 2vh;
             }
 
-            aspect-ratio: 1 / 1;
-
-            &:hover{
-                & > a{
-                    svg{
-                        fill: var(--hover);
-                        transform: translateZ(10px);
-                    }
-                    p{
-                        transform: translateZ(20px);
-                    }
-                }
-            }
-
-            & > a{
-                text-align: center;
-
-                text-decoration: none;
-
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
+            svg{
+                height: 6vh;
                 @media screen and (max-width: 1135px){
-                    padding: 2vh;
+                    height: 10vh;
                 }
 
-                svg{
-                    height: 6vh;
-                    @media screen and (max-width: 1135px){
-                        height: 10vh;
-                    }
+                fill: #fff;
 
-                    fill: #fff;
-
-                    transform: translateZ(0);
-                    transition: fill $transition, transform $transition;
-                }
-                p{
-                    font-size: 1.2em;
-
-                    transform: translateZ(0);
-                    transition: transform $transition;
-
-                    @media screen and (max-width: 1135px){
-                        display: none;
-                    }
-                }
+                transform: translateZ(0);
+                transition: fill $transition, transform $transition;
             }
         }
     }

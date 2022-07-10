@@ -19,6 +19,11 @@
                 <h2 class="ml12" style="opacity: 0;">My Skills</h2>
                 @include('technologies')
             </div>
+
+            <div>
+                <h2 class="ml12" style="opacity: 0;">Follow me</h2>
+                @include('social')
+            </div>
         </section>
 
         <!--Projects-->

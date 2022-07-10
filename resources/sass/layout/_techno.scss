@@ -6,10 +6,22 @@
     position: relative;
     width: 100%;
 
+    #techno_wrapper {
+        display: block;
+        height: 200px;
+    }
+
     #techno_text_wrapper {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+
         fill: #fff;
         stroke: #fff;
-        stroke-width: 2px;
+        stroke-width: 10px;
         stroke-linecap: round;
         fill-rule: evenodd;
         vector-effect: non-scaling-stroke;
@@ -17,5 +29,5 @@
 }
 
 .techno_icons {
-    visibility:hidden;
+    visibility: hidden;
 }
