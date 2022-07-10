@@ -27000,7 +27000,6 @@ var animInterval = setInterval(function () {
   }
 
   var item = socials[i];
-  console.log(item);
   item.animate([{
     transform: 'translateY(10vh)',
     opacity: 0

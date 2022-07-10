@@ -1,6 +1,9 @@
 <article class="projects_wrapper" style="opacity: 0;">
 
     @foreach(json_decode($projects) as $index => $project)
+        @php
+        info(json_encode($project));
+        @endphp
         <div class="project_wrapper flex justify-end align-center">
             <div class="left">
                 @php

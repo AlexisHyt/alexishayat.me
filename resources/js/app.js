@@ -100,7 +100,6 @@ const animInterval = setInterval(() => {
     }
 
     const item = socials[i];
-    console.log(item);
     item.animate([
         {
             transform: 'translateY(10vh)',

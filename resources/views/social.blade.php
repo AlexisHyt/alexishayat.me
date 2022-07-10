@@ -13,6 +13,11 @@
                 'icon' => 'linkedin',
                 'color' => '#0A66C2'
             ],
+            'Codepen' => [
+                'url' => 'https://codepen.io/AzenoX',
+                'icon' => 'codepen',
+                'color' => '#000000'
+            ],
             'Instagram' => [
                 'url' => 'https://www.instagram.com/azenox_/',
                 'icon' => 'instagram',
@@ -32,11 +37,6 @@
                 'url' => 'https://open.spotify.com/artist/7hCwcXSWMVS9axmIa0mEhy',
                 'icon' => 'spotify',
                 'color' => '#1DB954'
-            ],
-            'Codepen' => [
-                'url' => 'https://codepen.io/AzenoX',
-                'icon' => 'codepen',
-                'color' => '#000000'
             ],
             'Discord' => [
                 'url' => 'https://discord.gg/2KbWTmC7xe',

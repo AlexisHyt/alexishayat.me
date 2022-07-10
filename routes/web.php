@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +14,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'App\Http\Controllers\HomeController@index']);
-
-Route::prefix('demo')->group(function () {
-    Route::get('/saberunderline', [
-        'as' => 'demo.saberunderline',
-        'App\Http\Controllers\Demo\SaberUnderlineController@index'
-    ]);
-});

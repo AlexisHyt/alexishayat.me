@@ -36,7 +36,6 @@
         @endforeach
     </svg>
 
-    <script src="{{ mix('js/jquery.js') }}"></script>
     <script src="{{ mix('js/gsap.js') }}"></script>
     <script src="{{ mix('js/morph.js') }}"></script>
     <script>
@@ -47,14 +46,14 @@
         tl
         @foreach(json_decode($technos)->logos as $id => $t)
             .to(html, {morphSVG:"#{{ $id }}", fill: '{{ $t->logo->color }}'}, "+=2")
-        @endforeach
+            @endforeach
             .play();
 
         const tl_text = gsap.timeline({repeat: -1});
         tl_text
         @foreach(json_decode($technos)->logos as $id => $t)
             .to(html_text, {morphSVG:"#{{ $id }}_text"}, "+=2")
-        @endforeach
+            @endforeach
             .play();
     </script>
 

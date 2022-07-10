@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Services\GithubService;
 use Curl\Curl;
 use DateTime;
 use Exception;
@@ -17,7 +18,7 @@ class HomeController extends Controller
      * Show home page
      * @throws Exception
      */
-    public function index(Request $request)
+    public function index(Request $request, GithubService $githubService)
     {
         $projects = [];
 
@@ -88,43 +89,39 @@ class HomeController extends Controller
             ],
         ];
 
-        $curl = new Curl();
-        $curl->setHeader('Authorization', 'Bearer ' . env('GITHUB_TOKEN'));
-        $curl->get('https://api.github.com/users/AzenoX/repos');
+        $repos = $githubService->getRepos();
 
-        $file_content = file_get_contents(public_path('projects.json'));
-        $current_response = json_encode($curl->response);
-
-        if($file_content !== $current_response && env('PARSE_GITHUB', false)){
+        if ($githubService->hasNewRepos()) {
             $current_projects = [];
 
-            foreach ($curl->response as $item) {
+            foreach ($repos as $item) {
                 $current_projects[] = $item;
 
-                if (!$item->name) {
+                if (!$item['name']) {
                     continue;
                 }
-                $repo_name = $item->name;
-                $repo_description = $item->description ?? 'No description...';
-                $repo_url = $item->html_url ?? 'https://github.com/AzenoX';
+                $repo_name = $item['name'];
+                $repo_description = $item['description'] ?? 'No description...';
+                $repo_url = $item['html_url'] ?? 'https://github.com/AzenoX';
+                $repo_homepage = $item['homepage'];
 
-                $curlDate = new Curl();
-                $curlDate->setHeader('Authorization', 'Bearer ' . env('GITHUB_TOKEN'));
-                $curlDate->get('https://api.github.com/repos/AzenoX/' . $repo_name . '/contents/PORTFOLIO_FILE.md');
+                $curlDate = $githubService->getRepoInfos($repo_name);
 
-                if ($curlDate->response && $curlDate->message !== 'Not Found' && isset($curlDate->response->content)) {
-                    $content = base64_decode($curlDate->response->content);
+                if (
+                    isset($curlDate['response'])
+                    && $curlDate['message'] !== 'Not Found'
+                    && isset($curlDate['response']['content'])
+                ) {
+                    $content = base64_decode($curlDate['response']['content']);
                     $date = explode('_', $content)[0];
                     $type = explode('_', $content)[1] ?? 'website';
 
                     if (preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $date)) {
-                        $curlLangs = new Curl();
-                        $curlLangs->setHeader('Authorization', 'Bearer ' . env('GITHUB_TOKEN'));
-                        $curlLangs->get('https://api.github.com/repos/AzenoX/' . $repo_name . '/languages');
+                        $curlLangs = $githubService->getRepoLanguages($repo_name);
 
                         //Get all lang icons
                         $langs = [];
-                        foreach ($curlLangs->response as $lang => $value) {
+                        foreach ($curlLangs['response'] as $lang => $value) {
                             $langs[] = [
                                 'title' => $logo[$lang]['title'],
                                 'color' => $logo[$lang]['color']
@@ -142,6 +139,7 @@ class HomeController extends Controller
                             'name' => $repo_name,
                             'description' => $repo_description,
                             'url' => $repo_url,
+                            'homepage' => $repo_homepage,
                             'langs' => $langs,
                             'months' => $months,
                             'date_created' => $date_created,
