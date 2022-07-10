@@ -1,0 +1,25 @@
+#bg_video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    filter: hue-rotate(150deg);
+
+    opacity: 0;
+
+    z-index: 0;
+
+    transition: opacity 2s ease, filter 0.1s ease;
+
+
+    video{
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    &.loaded{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,21 @@
+#technos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+
+    #techno_text_wrapper {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        fill-rule: evenodd;
+        vector-effect: non-scaling-stroke;
+    }
+}
+
+.techno_icons {
+    visibility:hidden;
+}

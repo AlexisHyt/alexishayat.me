@@ -1,0 +1,125 @@
+.projects_wrapper{
+    padding: 0 3em;
+
+    position: relative;
+
+    height: 100vh;
+    overflow: auto;
+
+    -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(0deg, #fff 0%, transparent 7%, transparent 93%, #fff 100%);
+
+    .project_wrapper{
+        width: 40vw;
+        @media screen and (max-width: 1135px){
+            width: 100%;
+        }
+
+        $dotSize: 20px;
+
+        &.active{
+            .left{
+                .project{
+                    transform: scale(1.15);
+                    opacity: 1;
+                }
+            }
+        }
+
+        &:hover{
+            .left::before{
+                transform: scale(1.4);
+            }
+        }
+
+        .left{
+            $border-size: 4px;
+
+            position: relative;
+
+            padding: 1em 4em 1em 0;
+            width: 100%;
+
+            border-right: $border-size solid #fff;
+            @media screen and (max-width: 1135px){
+                padding: 1em 0;
+                border-right: none;
+            }
+            &::before{
+                content: '';
+                @media screen and (max-width: 1135px){
+                    display: none;
+                }
+                position: absolute;
+                top: calc(50% - #{$dotSize / 2});
+                right: -(($dotSize / 2) + ($border-size / 2));
+
+                height: $dotSize;
+                width: $dotSize;
+                border-radius: 50%;
+
+                background: #fff;
+
+                transform: scale(1);
+                transform-origin: center;
+
+                transition: transform 0.15s ease-out;
+            }
+
+            .project{
+                background: #071D30;
+
+                padding: 1em;
+
+                /*Define right border color*/
+                border-right: 5px solid #fff;
+                border-bottom: 3px solid #fff;
+                &.type-website{
+                    border-right: 5px solid #18AC00;
+                    border-bottom: 3px solid #18AC00;
+                }
+                &.type-lib{
+                    border-right: 5px solid #ff9800;
+                    border-bottom: 3px solid #ff9800;
+                }
+                &.type-other{
+                    border-right: 5px solid #3f51b5;
+                    border-bottom: 3px solid #3f51b5;
+                }
+
+                transform: scale(1);
+                opacity: 0.6;
+
+                transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+
+                h4{
+                    font-size: 2em;
+                    overflow-wrap: normal;
+                    @media screen and (max-width: 1135px){
+                        overflow-wrap: break-word;
+                    }
+                }
+                p{
+                    font-size: 1.1em;
+                }
+                a{
+                    margin: 1.5em auto;
+                }
+                img,svg{
+                    height: 3em;
+                }
+                & > div {
+                    display: flex;
+                    gap: 10px;
+                }
+            }
+        }
+        .right{
+            padding-left: 4em;
+            @media screen and (max-width: 1135px){
+                display: none;
+            }
+        }
+    }
+
+}

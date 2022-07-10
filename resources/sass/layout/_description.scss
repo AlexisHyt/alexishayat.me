@@ -1,0 +1,107 @@
+/*=================================
+
+      Titles
+
+==================================*/
+h1, h2, h3, h4, h5, h6, p{
+    color: #fff;
+    position: relative;
+    z-index: 8;
+}
+
+#description{
+    padding: 4em 6em;
+    @media screen and (max-width: 1135px){
+        padding: 10px 10vw;
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        font-size: 5.5em;
+        @media screen and (max-width: 1400px){
+            font-size: 3em;
+        }
+        @media screen and (max-width: 1135px){
+            font-size: 40px !important;
+        }
+        font-weight: 800;
+
+        &.ml16 {
+            overflow: hidden;
+        }
+        &.ml16 .letter {
+            display: inline-block;
+        }
+        opacity: 0;
+        animation: appear 0.1s ease-in-out forwards 1;
+    }
+    p{
+        font-size: 2.2em;
+        @media screen and (max-width: 1400px){
+            font-size: 1.9em;
+        }
+        @media screen and (max-width: 1135px){
+            font-size: 18px !important;
+        }
+    }
+
+    h2{
+        position: relative;
+
+        font-size: 4em;
+        font-weight: 800;
+
+        margin-bottom: .5em;
+
+        width: fit-content;
+
+        &.ml12 .letter {
+            display: inline-block;
+        }
+        opacity: 0;
+        animation: appear 0.1s ease-in-out forwards 1;
+
+        @media screen and (max-width: 1150px){
+            font-size: 2.2em;
+        }
+        @media screen and (max-width: 1135px){
+            font-size: 25px !important;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+
+            bottom: 5px;
+            @media screen and (max-width: 1135px){
+                bottom: 0;
+            }
+            left: 0;
+            width: 0;
+            height: 3px;
+
+            background: #fff;
+
+            animation: increaseWidth 1s ease-in-out 1.4s forwards 1;
+
+            @keyframes increaseWidth {
+                from{
+                    width: 0;
+                }
+                to{
+                    width: 30%;
+                }
+            }
+        }
+    }
+}
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
