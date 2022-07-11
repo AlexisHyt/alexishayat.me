@@ -488,6 +488,15 @@ h1, h2, h3, h4, h5, h6, p {
   cursor: pointer;
   transition: transform 0.4s ease-out;
 }
+.btn.btn--green {
+  box-shadow: 0 0 0 0.15em #43a047;
+}
+.btn.btn--green p {
+  color: #43a047;
+}
+.btn.btn--green span.btn-bg {
+  background: #43a047;
+}
 .btn p {
   position: relative;
   z-index: 4;
@@ -516,6 +525,9 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .btn:hover::after {
   right: 75%;
+}
+.btn:hover.btn--green p {
+  color: #fff;
 }
 .btn::before, .btn::after {
   content: "";

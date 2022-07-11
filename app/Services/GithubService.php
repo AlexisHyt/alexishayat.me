@@ -17,10 +17,10 @@ class GithubService
 
     public function hasNewRepos(): bool
     {
-        $actualRequest = $this->getRepos();
+        $actualRequest = json_encode($this->getRepos());
         $actualSave = file_get_contents(public_path('projects.json'));
 
-        return $actualRequest !== $actualSave
+        return json_decode($actualRequest) != json_decode($actualSave)
             && env('PARSE_GITHUB', false);
     }
 

@@ -1,5 +1,6 @@
 .btn{
     $mainColor: #fff;
+    $greenColor: #43a047;
     $beforeAndAfterColor: #071D30;
 
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -21,6 +22,18 @@
     cursor: pointer;
 
     transition: transform 0.4s ease-out;
+
+    &.btn--green {
+        box-shadow: 0 0 0 0.15em $greenColor;
+
+        p {
+            color: $greenColor;
+        }
+
+        span.btn-bg {
+            background: $greenColor;
+        }
+    }
 
     p{
         position: relative;
@@ -59,6 +72,12 @@
         }
         &::after{
             right: 75%;
+        }
+
+        &.btn--green {
+            p {
+                color: #fff;
+            }
         }
     }
 

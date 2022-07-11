@@ -1,9 +1,6 @@
 <article class="projects_wrapper" style="opacity: 0;">
 
-    @foreach(json_decode($projects) as $index => $project)
-        @php
-        info(json_encode($project));
-        @endphp
+    @forelse(json_decode($projects) as $index => $project)
         <div class="project_wrapper flex justify-end align-center">
             <div class="left">
                 @php
@@ -18,7 +15,12 @@
                 <div class="project {{ $borderClass }} {{ $project->type }}">
                     <h4>{{ $project->name }}</h4>
                     <p>{{ $project->description }}</p>
-                    <a class="btn" href="{{ $project->url }}" target="_blank"><p>Check on Github</p><span class="btn-bg"></span></a>
+                    <div>
+                        <a class="btn" href="{{ $project->url }}" target="_blank"><p>Check on Github</p><span class="btn-bg"></span></a>
+                        @if($project->homepage)
+                            <a class="btn btn--green" href="{{ $project->homepage }}" target="_blank"><p>View</p><span class="btn-bg"></span></a>
+                        @endif
+                    </div>
                     <div>
                         @foreach($project->langs as $lang)
                             @if($lang->title !== '__')
@@ -32,6 +34,8 @@
                 <p>Started {{ $project->months }} month ago</p>
             </div>
         </div>
-    @endforeach
+    @empty
+        <p>...</p>
+    @endforelse
 
 </article>

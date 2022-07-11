@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Services\GithubService;
-use Curl\Curl;
 use DateTime;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Swaggest\JsonSchema\Schema;
 
 class HomeController extends Controller
 {
@@ -108,11 +105,11 @@ class HomeController extends Controller
                 $curlDate = $githubService->getRepoInfos($repo_name);
 
                 if (
-                    isset($curlDate['response'])
-                    && $curlDate['message'] !== 'Not Found'
-                    && isset($curlDate['response']['content'])
+                    isset($curlDate['name'])
+                    && isset($curlDate['content'])
+                    && !isset($curlDate['message']) // if isset message = error
                 ) {
-                    $content = base64_decode($curlDate['response']['content']);
+                    $content = base64_decode($curlDate['content']);
                     $date = explode('_', $content)[0];
                     $type = explode('_', $content)[1] ?? 'website';
 
@@ -121,7 +118,7 @@ class HomeController extends Controller
 
                         //Get all lang icons
                         $langs = [];
-                        foreach ($curlLangs['response'] as $lang => $value) {
+                        foreach ($curlLangs as $lang => $value) {
                             $langs[] = [
                                 'title' => $logo[$lang]['title'],
                                 'color' => $logo[$lang]['color']
