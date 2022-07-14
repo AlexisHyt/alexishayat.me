@@ -1,7 +1,6 @@
 {
-    "/js/jquery.js": "/js/jquery.js?id=63c054063161d96872d6",
-    "/js/gsap.js": "/js/gsap.js?id=c2cd33403a3a3a77f424",
-    "/js/morph.js": "/js/morph.js?id=97e224e0e9430a9439ef",
-    "/js/app.js": "/js/app.js?id=d90f6c8ff03023c63537",
-    "/css/main.css": "/css/main.css?id=31ae12b2f81c666cdb97"
+    "/js/gsap.js": "/js/gsap.js?id=ca97c61fbf7be0b961c2",
+    "/js/morph.js": "/js/morph.js?id=8f8db928c033e36d9837",
+    "/js/app.js": "/js/app.js?id=b1d40294faff2b8579b7",
+    "/css/main.css": "/css/main.css?id=d8aa9a3eecb1ce685bd2"
 }

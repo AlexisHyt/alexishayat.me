@@ -1,6 +1,5 @@
 require('./bootstrap');
 
-require('./jquery');
 window.gsap = require('./gsap');
 require('./morph');
 require('./projects');

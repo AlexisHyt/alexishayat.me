@@ -11,9 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/jquery.js', 'public/js')
-    .version();
-
 mix.js('resources/js/gsap.js', 'public/js')
     .version();
 
