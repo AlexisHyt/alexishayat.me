@@ -14,6 +14,6 @@ jobs:
           OVH_HOSTING_USER: ${{ secrets.OVH_HOSTING_USER }}
           OVH_HOSTING_PASSWORD: ${{ secrets.OVH_HOSTING_PASSWORD }}
           OVH_HOSTING_DOMAIN: ${{ secrets.OVH_HOSTING_DOMAIN }}
-          REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
+          REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
           DOMAIN: ${{ secrets.DOMAIN }}
 
