@@ -61,8 +61,8 @@ class HomeController extends Controller
                 'color' => '#4FC08D',
             ],
             'Shell' => [
-                'title' => '__',
-                'color' => '#000',
+                'title' => 'powershell',
+                'color' => '#21B352',
             ],
             'Twig' => [
                 'title' => '__',
