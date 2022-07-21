@@ -9,13 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: composer install
-      - run: npm ci
-      - run: npm run prod
       - uses: AzenoX/ovh-deploy-hosting-action@master
         env:
           OVH_HOSTING_USER: ${{ secrets.OVH_HOSTING_USER }}
