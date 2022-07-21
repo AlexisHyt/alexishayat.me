@@ -151,7 +151,6 @@ class HomeController extends Controller
             usort($projects, function ($a, $b){
                 $dateA = DateTime::createFromFormat('Y-m-d H:i:s.u', $a->date_created->date);
                 $dateB = DateTime::createFromFormat('Y-m-d H:i:s.u', $b->date_created->date);
-
                 return ($dateA->getTimestamp() - $dateB->getTimestamp()) * -1;
             });
 
