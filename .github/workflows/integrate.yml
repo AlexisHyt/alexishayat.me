@@ -16,5 +16,5 @@ jobs:
           node-version: 16
       - run: composer install
       - run: npm ci
-      - run: npm run build
+      - run: npm run prod
       - uses: nathanheffley/laravel-phpunit-action@master  # Specific to Laravel
