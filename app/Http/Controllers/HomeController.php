@@ -36,6 +36,10 @@ class HomeController extends Controller
                 'title' => 'php',
                 'color' => '#777BB4',
             ],
+            'Blade' => [
+                'title' => 'laravel',
+                'color' => '#FF2D20',
+            ],
             'SCSS' => [
                 'title' => 'sass',
                 'color' => '#CC6699',
@@ -77,10 +81,6 @@ class HomeController extends Controller
                 'color' => '#000',
             ],
             'Other' => [
-                'title' => '__',
-                'color' => '#000',
-            ],
-            'Blade' => [
                 'title' => '__',
                 'color' => '#000',
             ],

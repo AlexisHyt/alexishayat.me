@@ -73,7 +73,7 @@
 
     <img src="{{ asset('assets/images/red.jpg') }}" alt="403" class="tilted">
 
-    <h1>ERROR 401 - FORBIDDEN</h1>
+    <h1>ERROR 403 - FORBIDDEN</h1>
 
     <div class="separator"></div>
 
