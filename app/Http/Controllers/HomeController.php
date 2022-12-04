@@ -101,6 +101,7 @@ class HomeController extends Controller
                 if (!$item['name']) {
                     continue;
                 }
+
                 $repo_name = $item['name'];
                 $repo_description = $item['description'] ?? 'No description...';
                 $repo_url = $item['html_url'] ?? 'https://github.com/AzenoX';
