@@ -6,6 +6,18 @@ on:
       - master
 
 jobs:
+  phpcs:
+    name: CodeSniffer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: composer install
+      - run: npm ci
+      - run: npm run prod
+      - run: vendor/bin/phpcs --standard=./CustomPSR12.xml --ignore=vendor,*/**/*.blade.php,bootstrap/cache,storage/framework/views --extensions=php .
   phpunit:
     name: PHPUnit
     runs-on: ubuntu-latest
