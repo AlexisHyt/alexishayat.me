@@ -17,7 +17,7 @@ class GithubController extends Controller
      */
     public function repoCount(Request $request): JsonResponse
     {
-        $count = Cache::remember('repo_count', 60*60*24*7, function () {
+        $count = Cache::remember('repo_count', 60 * 60 * 24 * 7, function () {
             $response = Http::withToken(env('GITHUB_TOKEN'))
                 ->get('https://api.github.com/users/AzenoX/repos');
             $response = collect($response->json())
@@ -53,7 +53,7 @@ class GithubController extends Controller
      */
     public function countCommits(): JsonResponse
     {
-        $commitCount = Cache::remember('commits_count', 60*60*24*7, function () {
+        $commitCount = Cache::remember('commits_count', 60 * 60 * 24 * 7, function () {
             $curl = new Curl();
             $curl->setHeader('Authorization', 'Bearer ' . env('GITHUB_TOKEN'));
             $curl->get('https://api.github.com/users/AzenoX/repos');

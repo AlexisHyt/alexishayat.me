@@ -152,7 +152,7 @@ class HomeController extends Controller
             }
 
             //Sort projects
-            usort($projects, function ($a, $b){
+            usort($projects, function ($a, $b) {
                 $dateA = DateTime::createFromFormat('Y-m-d H:i:s.u', $a->date_created->date);
                 $dateB = DateTime::createFromFormat('Y-m-d H:i:s.u', $b->date_created->date);
                 return ($dateA->getTimestamp() - $dateB->getTimestamp()) * -1;
@@ -163,9 +163,7 @@ class HomeController extends Controller
             file_put_contents(public_path('projects_built.json'), json_encode($projects));
 
             $projects = json_encode($projects);
-
-        }
-        else{
+        } else {
             $projects = file_get_contents(public_path('projects_built.json'), true);
         }
 
@@ -174,7 +172,7 @@ class HomeController extends Controller
         return view('home', [
             'projects' => $projects,
             'technos' => $technos,
-            'firstItemId' => array_key_first((Array)json_decode($technos)->logos),
+            'firstItemId' => array_key_first((array)json_decode($technos)->logos),
         ]);
     }
 }
