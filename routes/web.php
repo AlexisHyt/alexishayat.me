@@ -17,8 +17,3 @@ Route::get('/', [
     'as' => 'home',
     'uses' => 'App\Http\Controllers\HomeController@index'
 ]);
-
-Route::get('/upgrade', [
-    'as' => 'upgrade',
-    'uses' => 'App\Http\Controllers\UpgradeController@index'
-]);

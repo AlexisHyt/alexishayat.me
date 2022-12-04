@@ -20,3 +20,6 @@ mix.js('resources/js/morph.js', 'public/js')
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/main.scss', 'public/css', [])
     .version();
+
+mix.js('resources/js/app2.js', 'public/js')
+    .version();
