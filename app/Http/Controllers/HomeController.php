@@ -60,9 +60,13 @@ class HomeController extends Controller
                 'title' => 'vuedotjs',
                 'color' => '#4FC08D',
             ],
+//            'Shell' => [
+//                'title' => 'powershell',
+//                'color' => '#21B352',
+//            ],
             'Shell' => [
-                'title' => 'powershell',
-                'color' => '#21B352',
+                'title' => '__',
+                'color' => '#000',
             ],
             'Twig' => [
                 'title' => '__',
