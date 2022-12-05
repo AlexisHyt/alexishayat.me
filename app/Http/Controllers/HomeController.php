@@ -8,6 +8,7 @@ use App\Services\GithubService;
 use DateTime;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,7 @@ class HomeController extends Controller
      * Show home page
      * @throws Exception
      */
-    public function index(Request $request, GithubService $githubService)
+    public function index(GithubService $githubService): View
     {
         $projects = [];
 
