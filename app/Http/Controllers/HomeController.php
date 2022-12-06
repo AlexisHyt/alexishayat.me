@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     /**
      * Show home page
+     *
      * @throws Exception
      */
     public function index(GithubService $githubService): View
