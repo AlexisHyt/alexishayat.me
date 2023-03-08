@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: .devops/php/Dockerfile
+        container_name: alexishayat-me-php
+        restart: unless-stopped
+        env_file:
+            - .env
+        ports:
+            - "9000:9000"
+        networks:
+            - alexishayat-me-network
+
+    nginx:
+        image: nginx:stable-alpine
+        container_name: alexishayat-me-nginx
+        restart: unless-stopped
+        ports:
+            - "8190:443"
+        volumes:
+            - ./:/var/www:cached
+            - .devops/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:cached
+            - /var/certificates/alexishayat.me/fullchain.pem:/etc/nginx/ssl/fullchain.pem:cached
+            - /var/certificates/alexishayat.me/privkey.pem:/etc/nginx/ssl/privkey.pem:cached
+        networks:
+            - alexishayat-me-network
+
+networks:
+    alexishayat-me-network:
+        driver: bridge
