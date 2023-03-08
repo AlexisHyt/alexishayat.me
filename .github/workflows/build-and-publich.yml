@@ -34,6 +34,7 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: .
           # build on feature branches, push only on main branch
+          tags: azenox/portfolio:latest
           push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Image digest
