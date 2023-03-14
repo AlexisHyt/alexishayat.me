@@ -8,7 +8,7 @@
             <div>
                 <h1 title="Alexis Hayat" class="ml16" style="opacity: 0;">Alexis Hayat</h1>
                 <div class="description_content" style="opacity: 0;">
-                    <p>Location: Paris</p>
+                    <p>Location: Angers, France</p>
                     <p>Age: <?= DateTime::createFromFormat('d/m/Y', '22/08/1998', new DateTimeZone('Europe/Paris'))
                             ->diff(new DateTime('now', new DateTimeZone('Europe/Paris')))
                             ->y; ?></p>
