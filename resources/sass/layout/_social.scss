@@ -1,57 +1,73 @@
-#social{
+#social {
+    @media screen and (max-width: 1136px) {
+        display: none;
+    }
+
+    position: absolute;
+    bottom: 5vh;
+    left: 5vh;
+
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 
-    & > .social_item{
+    > .social_items_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 80vw;
+    }
+
+    .social_item {
         position: relative;
         z-index: 8;
-
+        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        cursor: pointer;
+        transition: 0.3s cubic-bezier(.17,-0.04,.25,1.05);
 
-        margin: 0.1%;
-
-        /*To be animated*/
-        transform: translateY(20vh);
-        opacity: 0;
-
-        $transition: 0.15s ease-out;
-
-        &:hover{
-            svg{
-                fill: var(--hover);
-                transform: translateZ(10px);
-            }
+        &:hover svg {
+            fill: var(--hover);
+            transform: translateZ(100px);
         }
 
-        & > a{
+        > a {
             text-align: center;
-
             text-decoration: none;
-
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            @media screen and (max-width: 1135px){
-                padding: 2vh;
+            padding: 2vh;
+            transition: opacity 0.3s cubic-bezier(.17,-0.04,.25,1.05), transform 0.3s cubic-bezier(.17,-0.04,.25,1.05);
+
+            &:not(.social_open_link) {
+                transform: translateY(20vh);
+                opacity: 0;
             }
 
-            svg{
+            &.social_open_link {
+                background: #071D30;
+                border-radius: 50%;
+                padding: 1vw;
+                border: 2px solid #18AC00;
+            }
+
+            svg {
                 height: 6vh;
-                @media screen and (max-width: 1135px){
-                    height: 10vh;
-                }
-
                 fill: #fff;
-
                 transform: translateZ(0);
-                transition: fill $transition, transform $transition;
+                transition: fill 0.3s cubic-bezier(.17,-0.04,.25,1.05), transform 0.3s cubic-bezier(.17,-0.04,.25,1.05);
             }
+        }
+
+        &.opened a {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
         }
     }
 }

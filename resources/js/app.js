@@ -136,3 +136,14 @@ projects.animate([
 });
 
 
+/*==========================
+    Social Handler
+ ==========================*/
+const socialOpenHandler = document.querySelector('.social_open_handler');
+const socialItemsWrapper = document.querySelector('.social_items_wrapper');
+socialOpenHandler.addEventListener('click', () => {
+    socialItemsWrapper.querySelectorAll('.social_item').forEach((el) => {
+        el.classList.toggle('opened');
+    })
+});
+

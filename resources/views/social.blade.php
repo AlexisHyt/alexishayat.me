@@ -1,7 +1,13 @@
 <article id="social">
 
-    <?php
+    <div class="social_item social_open_handler">
+        <a target="_blank" class="social_open_link">
+            <x-icon name="bxs-contact" style="--hover: #fff"/>
+        </a>
+    </div>
 
+    <div class="social_items_wrapper">
+        <?php
         $socials = [
             'Github' => [
                 'url' => 'https://github.com/AzenoX',
@@ -38,26 +44,21 @@
                 'icon' => 'spotify',
                 'color' => '#1DB954'
             ],
-            'Discord' => [
-                'url' => 'https://discord.gg/2KbWTmC7xe',
-                'icon' => 'discord',
-                'color' => '#5865F2'
-            ],
             'Twitch' => [
                 'url' => 'https://www.twitch.tv/azenox_',
                 'icon' => 'twitch',
                 'color' => '#9146FF'
             ],
         ];
+        ?>
 
-    ?>
-
-    @foreach($socials as $name => $social)
-        <div class="social_item">
-            <a href="{{ $social['url'] }}" target="_blank">
-                <x-icon name="{{ $social['icon'] }}" style="--hover: {{ $social['color'] }}"/>
-            </a>
-        </div>
-    @endforeach
+        @foreach($socials as $name => $social)
+            <div class="social_item">
+                <a href="{{ $social['url'] }}" target="_blank">
+                    <x-icon name="{{ $social['icon'] }}" style="--hover: {{ $social['color'] }}"/>
+                </a>
+            </div>
+        @endforeach
+    </div>
 
 </article>
