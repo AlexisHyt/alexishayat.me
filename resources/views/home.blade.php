@@ -16,7 +16,7 @@
             </div>
 
             <div>
-                <h2 class="ml12" style="opacity: 0;">My Skills</h2>
+                <h2 class="ml12" style="opacity: 0; margin-top: 2vh;">My Skills</h2>
                 @include('technologies')
             </div>
 

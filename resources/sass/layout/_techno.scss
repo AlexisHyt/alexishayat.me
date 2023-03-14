@@ -1,13 +1,10 @@
 #technos {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-evenly;
+    flex-direction: column;
     position: relative;
     width: 100%;
-
     opacity: 0;
-
     animation: appear 1s ease 0.4s forwards;
 
     @keyframes appear {
@@ -19,28 +16,94 @@
         }
     }
 
-    #techno_wrapper {
-        display: block;
-        height: 200px;
-    }
-
-    #techno_text_wrapper {
+    .top {
         display: flex;
-        justify-content: center;
-        text-align: center;
+        justify-content: space-evenly;
+        position: relative;
         width: 100%;
-        height: 50px;
-        padding: 10px;
 
-        fill: #fff;
-        stroke: #fff;
-        stroke-width: 10px;
-        stroke-linecap: round;
-        fill-rule: evenodd;
-        vector-effect: non-scaling-stroke;
+        @media (max-width: 1135px){
+            flex-direction: column !important;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 20vw;
+
+            #techno_wrapper, #techno_text_wrapper {
+                display: block;
+                height: 150px;
+
+                .techno_icons, .techno_icons_text {
+                    visibility: hidden;
+                }
+            }
+
+            #techno_text_wrapper {
+                justify-content: center;
+                text-align: center;
+                height: 50px;
+                padding: 10px;
+
+                fill: #fff;
+                stroke: #fff;
+                stroke-width: 10px;
+                stroke-linecap: round;
+                fill-rule: evenodd;
+                vector-effect: non-scaling-stroke;
+            }
+        }
+
+        .right {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            @media (max-width: 1135px){
+                margin-top: 2vh !important;
+            }
+
+            .progress_bar {
+                position: relative;
+                height: 1vh;
+                width: 20vw;
+
+                @media (max-width: 1135px){
+                    width: 80vw !important;
+                }
+
+                span {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: #E34F26;
+                    display: block;
+                }
+            }
+
+            .progress_bar_indicator {
+                font-size: 1.2rem;
+            }
+        }
     }
 
-    .techno_icons {
-        visibility: hidden;
+    .bottom {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 2vh;
+
+        .technos_showcase {
+            height: 5vh;
+            width: 5vh;
+            margin: 0.5vh;
+            flex-basis: 12%;
+            opacity: 0.4;
+            transition: opacity 0.3s cubic-bezier(.17,-0.04,.25,1.05);
+        }
     }
 }
