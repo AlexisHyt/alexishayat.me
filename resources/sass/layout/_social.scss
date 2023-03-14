@@ -54,7 +54,13 @@
                 background: #071D30;
                 border-radius: 50%;
                 padding: 1vw;
-                border: 2px solid #18AC00;
+                border: 2px solid #071D30;
+
+                transition: border 0.3s cubic-bezier(.17,-0.04,.25,1.05);
+
+                &:hover {
+                    border: 2px solid #18AC00;
+                }
             }
 
             svg {
