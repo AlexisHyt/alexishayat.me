@@ -15,3 +15,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+.github/workflows/build-and-publish.yml
+.github/workflows/deploy.yml
