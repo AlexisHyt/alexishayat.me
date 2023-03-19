@@ -19,7 +19,6 @@
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
-        "d3": "^7.8.0",
         "flubber": "^0.4.2",
         "particles.js": "^2.0.0",
         "vanilla-tilt": "^1.8.0"
