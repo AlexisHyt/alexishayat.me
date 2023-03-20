@@ -214,7 +214,7 @@
     </div>
 
     <div id="bg_video">
-        <video src="{{ asset('assets/bg.mp4') }}" autoplay loop muted preload="none"></video>
+        <video src="{{ rand(0, 5) === 0 ? asset('assets/coruscant.mp4') : asset('assets/bg.mp4') }}" autoplay loop muted preload="none"></video>
     </div>
 
     @yield('content')
