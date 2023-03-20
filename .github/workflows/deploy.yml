@@ -38,7 +38,7 @@ jobs:
           key: ${{ secrets.OVH_SSH_PRIVATE_KEY }}
           port: ${{ secrets.OVH_SSH_PORT }}
           script: |
-            chmod 777 -R /var/www/alexishayat.me/storage
-            chmod 777 -R /var/www/alexishayat.me/public/projects.json
-            chmod 777 -R /var/www/alexishayat.me/public/projects_built.json
+            chmod 777 -R ${{ secrets.STORAGE_PATH }}
+            chmod 777 ${{ secrets.PROJECTS_PATH }}
+            chmod 777 ${{ secrets.PROJECTS_BUILT_PATH }}
 
