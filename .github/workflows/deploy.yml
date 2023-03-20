@@ -29,3 +29,4 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync -avz --exclude '.git' --chmod=Dg=rwx,Fg=rwx ./ ${{ secrets.OVH_SSH_USER }}@${{ secrets.OVH_SSH_HOST }}:/var/www/alexishayat.me/
+
