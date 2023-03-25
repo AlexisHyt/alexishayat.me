@@ -41,4 +41,8 @@ jobs:
             chmod 777 -R ${{ secrets.STORAGE_PATH_DEVELOP }}
             chmod 777 ${{ secrets.PROJECTS_PATH_DEVELOP }}
             chmod 777 ${{ secrets.PROJECTS_BUILT_PATH_DEVELOP }}
+            cd /var/www/beta.alexishayat.me/
+            composer install
+            npm ci
+            npm run prod
 
