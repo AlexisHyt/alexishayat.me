@@ -132,16 +132,12 @@ class GithubCommand extends Command
                 $repo_url = $item['html_url'] ?? 'https://github.com/AzenoX';
                 $repo_homepage = $item['homepage'];
 
-                $curlDate = $githubService->getRepoInfos($repo_name);
+                $portfolioFileContent = $githubService->getRepoInfos($repo_name);
 
-                if (
-                    isset($curlDate['name'])
-                    && isset($curlDate['content'])
-                    && !isset($curlDate['message']) // if isset message = error
-                ) {
-                    $content = base64_decode($curlDate['content']);
-                    $date = explode('_', $content)[0];
-                    $type = explode('_', $content)[1] ?? 'website';
+                if ($portfolioFileContent) {
+                    $date = explode('_', $portfolioFileContent)[0];
+                    $type = explode('_', $portfolioFileContent)[1] ?? 'website';
+                    $base64image = explode('_', $portfolioFileContent)[2] ?? null;
 
                     if (preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $date)) {
                         $curlLangs = $githubService->getRepoLanguages($repo_name);
@@ -170,7 +166,8 @@ class GithubCommand extends Command
                             'langs' => $langs,
                             'months' => $months,
                             'date_created' => $date_created,
-                            'type' => $type
+                            'type' => $type,
+                            'image' => $base64image
                         ]);
                         $projects[] = json_decode($project);
                     }

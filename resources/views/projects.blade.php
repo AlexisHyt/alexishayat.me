@@ -12,13 +12,16 @@
                         $borderClass = 'type-other';
                     }
                 @endphp
-                <div class="project {{ $borderClass }} {{ $project->type }}">
+                <div
+                    class="project {{ $borderClass }} {{ $project->type }}"
+                    style="@if($project->image) background-image: url({{ $project->image }}); background-position: center; background-size: cover; @endif"
+                >
                     <h4>{{ $project->name }}</h4>
-                    <p>{{ $project->description }}</p>
+                    <p class="description">{{ $project->description }}</p>
                     <div>
                         <a class="btn" href="{{ $project->url }}" target="_blank"><p>Check on Github</p><span class="btn-bg"></span></a>
                         @if($project->homepage)
-                            <a class="btn btn--green" href="{{ $project->homepage }}" target="_blank"><p>View</p><span class="btn-bg"></span></a>
+                            <a class="btn btn--green homepage-link" href="{{ $project->homepage }}" target="_blank"><p>View</p><span class="btn-bg"></span></a>
                         @endif
                     </div>
                     <div>
