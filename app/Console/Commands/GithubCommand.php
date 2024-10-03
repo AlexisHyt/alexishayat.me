@@ -6,6 +6,7 @@ use App\Services\GithubService;
 use DateTime;
 use Exception;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class GithubCommand extends Command
 {
@@ -145,10 +146,14 @@ class GithubCommand extends Command
                         //Get all lang icons
                         $langs = [];
                         foreach ($curlLangs as $lang => $value) {
-                            $langs[] = [
-                                'title' => $logo[$lang]['title'],
-                                'color' => $logo[$lang]['color']
-                            ];
+                            if (isset($logo[$lang])) {
+                                $langs[] = [
+                                    'title' => $logo[$lang]['title'],
+                                    'color' => $logo[$lang]['color']
+                                ];
+                            } else {
+                                Log::debug('Missing logo for: ' . $lang);
+                            }
                         }
 
                         //Get months since the beginning of the project
